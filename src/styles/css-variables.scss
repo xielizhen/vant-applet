@@ -1,0 +1,75 @@
+@import './var.scss';
+
+:root {
+    // Color Palette
+    --xie-black: $black;
+    --xie-white: $white;
+    --xie-gray-1: $gray-1;
+    --xie-gray-2: $gray-2;
+    --xie-gray-3: $gray-3;
+    --xie-gray-4: $gray-4;
+    --xie-gray-5: $gray-5;
+    --xie-gray-6: $gray-6;
+    --xie-gray-7: $gray-7;
+    --xie-gray-8: $gray-8;
+    --xie-red: $red;
+    --xie-blue: $blue;
+    --xie-orange: $orange;
+    --xie-orange-dark: $orange-dark;
+    --xie-orange-light: $orange-light;
+    --xie-green: $green;
+
+    // Gradient Colors
+    --xie-gradient-red: $gradient-red;
+    --xie-gradient-orange: $gradient-orange;
+
+    // Component Colors
+    --xie-primary-color: $primary-color;
+    --xie-success-color: $success-color;
+    --xie-danger-color: $danger-color;
+    --xie-warning-color: $warning-color;
+    --xie-text-color: $text-color;
+    --xie-text-color-2: $text-color-2;
+    --xie-text-color-3: $text-color-3;
+    --xie-text-link-color: $text-link-color;
+    --xie-active-color: $active-color;
+    --xie-active-opacity: $active-opacity;
+    --xie-disabled-opacity: $disabled-opacity;
+    --xie-background-color: $background-color;
+    --xie-background-color-light: $background-color-light;
+
+    // Padding
+    --xie-padding-base: $padding-base;
+    --xie-padding-xs: $padding-xs;
+    --xie-padding-sm: $padding-sm;
+    --xie-padding-md: $padding-md;
+    --xie-padding-lg: $padding-lg;
+    --xie-padding-xl: $padding-xl;
+
+    // Font
+    --xie-font-size-xs: $font-size-xs;
+    --xie-font-size-sm: $font-size-sm;
+    --xie-font-size-md: $font-size-md;
+    --xie-font-size-lg: $font-size-lg;
+    --xie-font-weight-bold: $font-weight-bold;
+    --xie-line-height-xs: $line-height-xs;
+    --xie-line-height-sm: $line-height-sm;
+    --xie-line-height-md: $line-height-md;
+    --xie-line-height-lg: $line-height-lg;
+    --xie-base-font-family: $base-font-family;
+    --xie-price-integer-font-family: $price-integer-font-family;
+
+    // Animation
+    --xie-animation-duration-base: $animation-duration-base;
+    --xie-animation-duration-fast: $animation-duration-fast;
+    --xie-animation-timing-function-enter: $animation-timing-function-enter;
+    --xie-animation-timing-function-leave: $animation-timing-function-leave;
+
+    // Border
+    --xie-border-color: $border-color;
+    --xie-border-width-base: $border-width-base;
+    --xie-border-radius-sm: $border-radius-sm;
+    --xie-border-radius-md: $border-radius-md;
+    --xie-border-radius-lg: $border-radius-lg;
+    --xie-border-radius-max: $border-radius-max;
+}

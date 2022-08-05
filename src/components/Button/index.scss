@@ -1,0 +1,54 @@
+@import '../../styles/css-variables.scss';
+
+:root {
+    --xie-button-mini-height: --xie-mini-height;
+    --xie-button-mini-padding: --xie-mini-padding;
+    --xie-button-mini-font-size: --xie-mini-font-size;
+    --xie-button-small-height: --xie-small-height;
+    --xie-button-small-padding: --xie-small-padding;
+    --xie-button-small-font-size: --xie-small-font-size;
+    --xie-button-normal-padding: --xie-normal-padding;
+    --xie-button-normal-font-size: --xie-normal-font-size;
+    --xie-button-large-height: --xie-large-height;
+    --xie-button-default-height: --xie-default-height;
+    --xie-button-default-line-height: --xie-default-line-height;
+    --xie-button-default-font-size: --xie-default-font-size;
+    --xie-button-default-color: --xie-default-color;
+    --xie-button-default-background-color: --xie-default-background-color;
+    --xie-button-default-border-color: --xie-default-border-color;
+    --xie-button-primary-color: --xie-primary-color;
+    --xie-button-primary-background-color: --xie-primary-background-color;
+    --xie-button-primary-border-color: --xie-primary-border-color;
+    --xie-button-success-color: --xie-success-color;
+    --xie-button-success-background-color: --xie-success-background-color;
+    --xie-button-success-border-color: --xie-success-border-color;
+    --xie-button-danger-color: --xie-danger-color;
+    --xie-button-danger-background-color: --xie-danger-background-color;
+    --xie-button-danger-border-color: --xie-danger-border-color;
+    --xie-button-warning-color: --xie-warning-color;
+    --xie-button-warning-background-color: --xie-warning-background-color;
+    --xie-button-warning-border-color: --xie-warning-border-color;
+    --xie-button-border-width: --xie-border-width;
+    --xie-button-border-radius: --xie-border-radius;
+    --xie-button-round-border-radius: --xie-round-border-radius;
+    --xie-button-plain-background-color: --xie-plain-background-color;
+    --xie-button-disabled-opacity: --xie-disabled-opacity;
+    --xie-button-icon-size: --xie-icon-size;
+    --xie-button-loading-icon-size: --xie-loading-icon-size;
+}
+
+.xie-btn {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    height: var(--xie-button-default-height);
+    margin: 0;
+    padding: 0;
+    font-size: var(--xie-button-default-font-size);
+    line-height: var(--xie-button-default-line-height);
+    text-align: center;
+    border-radius: var(--xie-button-border-radius);
+    cursor: pointer;
+    transition: opacity var(--xie-animation-duration-fast);
+    -webkit-appearance: none;
+}

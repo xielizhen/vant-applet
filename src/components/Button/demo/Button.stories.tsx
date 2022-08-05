@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Button from './Button';
+import Button from '../Button';
 
 export default {
     title: 'Basic/Button',
@@ -11,10 +11,10 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const ClickMe = Template.bind({});
 ClickMe.args = {
-    label: 'Click me!'
+   children: 'click me!'
 }
 
 export const HelloWorld = Template.bind({});
 HelloWorld.args = {
-    label: 'Hello world!'
+   children: 'hello world'
 }
