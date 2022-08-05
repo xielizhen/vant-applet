@@ -1,0 +1,13 @@
+@import './mixins/ellipsis.scss';
+
+.xie-ellipsis {
+    @include ellipsis();
+}
+
+.xie-multi-ellipsis--l2 {
+    @include multi-ellipsis(2);
+}
+
+.xie-multi-ellipsis--l3 {
+    @include multi-ellipsis(3);
+}
