@@ -1,6 +1,6 @@
 {
   "name": "vant-wechat-demo",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "a ui component for wechat looks like vant",
   "scripts": {
     "rollup": "rollup -c",
