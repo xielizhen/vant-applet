@@ -1,6 +1,7 @@
 import React from 'react';
-import './index.scss';
 import { ButtonNativeType, ButtonSize, ButtonType } from './types';
+
+import './index.less';
 
 export interface ButtonProps {
     type?: ButtonType;
@@ -35,7 +36,7 @@ const Button = (props: ButtonProps) => {
         children
     } = props;
     return (
-        <button className='xie-btn'>
+        <button className='xie-btn xie-btn--success xie-btn--hairline xie-hairline xie-hairline--surround xie-btn--disabled'>
             {children}
         </button>
     )

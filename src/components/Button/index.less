@@ -1,0 +1,121 @@
+@import '../../styles/base.less';
+@import './var.less';
+
+:root {
+    --xie-button-mini-height: @button-mini-height;
+    --xie-button-mini-padding: @button-mini-padding;
+    --xie-button-mini-font-size: @button-mini-font-size;
+    --xie-button-small-height: @button-small-height;
+    --xie-button-small-padding: @button-small-padding;
+    --xie-button-small-font-size: @button-small-font-size;
+    --xie-button-normal-padding: @button-normal-padding;
+    --xie-button-normal-font-size: @button-normal-font-size;
+    --xie-button-large-height: @button-large-height;
+    --xie-button-default-height: @button-default-height;
+    --xie-button-default-line-height: @button-default-line-height;
+    --xie-button-default-font-size: @button-default-font-size;
+    --xie-button-default-color: @button-default-color;
+    --xie-button-default-background-color: @button-default-background-color;
+    --xie-button-default-border-color: @button-default-border-color;
+    --xie-button-primary-color: @button-primary-color;
+    --xie-button-primary-background-color: @button-primary-background-color;
+    --xie-button-primary-border-color: @button-primary-border-color;
+    --xie-button-success-color: @button-success-color;
+    --xie-button-success-background-color: @button-success-background-color;
+    --xie-button-success-border-color: @button-success-border-color;
+    --xie-button-danger-color: @button-danger-color;
+    --xie-button-danger-background-color: @button-danger-background-color;
+    --xie-button-danger-border-color: @button-danger-border-color;
+    --xie-button-warning-color: @button-warning-color;
+    --xie-button-warning-background-color: @button-warning-background-color;
+    --xie-button-warning-border-color: @button-warning-border-color;
+    --xie-button-border-width: @button-border-width;
+    --xie-button-border-radius: @button-border-radius;
+    --xie-button-round-border-radius: @button-round-border-radius;
+    --xie-button-plain-background-color: @button-plain-background-color;
+    --xie-button-disabled-opacity: @button-disabled-opacity;
+    --xie-button-icon-size: @button-icon-size;
+    --xie-button-loading-icon-size: @button-loading-icon-size;
+}
+
+.xie-btn {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    height: var(--xie-button-default-height);
+    margin: 0;
+    padding: 0;
+    font-size: var(--xie-button-default-font-size);
+    line-height: var(--xie-button-default-line-height);
+    text-align: center;
+    border-radius: var(--xie-button-border-radius);
+    cursor: pointer;
+    transition: opacity var(--xie-animation-duration-fast);
+    -webkit-appearance: none;
+
+    &--default {
+        color: var(--xie-button-default-color);
+        background-color: var(--xie-button-default-background-color);
+        border: var(--xie-button-border-width) solid var(--xie-button-default-border-color);
+    }
+
+    &--primary {
+        color: var(--xie-button-primary-color);
+        background-color: var(--xie-button-primary-background-color);
+        border: var(--xie-button-border-width) solid var(--xie-button-primary-border-color);
+    }
+
+    &--success {
+        color: var(--xie-button-success-color);
+        background-color: var(--xie-button-success-background-color);
+        border: var(--xie-button-border-width) solid var(--xie-button-success-border-color);
+    }
+
+    &--warning {
+        color: var(--xie-button-warning-color);
+        background-color: var(--xie-button-warning-background-color);
+        border: var(--xie-button-border-width) solid var(--xie-button-warning-border-color);
+    }
+
+    &--danger {
+        color: var(--xie-button-danger-color);
+        background-color: var(--xie-button-danger-background-color);
+        border: var(--xie-button-border-width) solid var(--xie-button-danger-border-color);
+    }
+
+    &--plain {
+        background: var(--xie-button-plain-background-color);
+
+        &.xie-btn--primary {
+            color: var(--xie-button-primary-background-color);
+        }
+
+        &.xie-btn--success {
+            color: var(--xie-button-success-background-color);
+        }
+
+        &.xie-btn--warning {
+            color: var(--xie-button-warning-background-color);
+        }
+
+        &.xie-btn--danger {
+            color: var(--xie-button-danger-background-color);
+        }
+    }
+
+    // 设置hairline属性可以展示0.5px的细边框，对于retina屏如何显示1px边框问题有很大的帮助
+    // 主要解法就是内容区所有长度属性放大两倍，然后用transform:scale(0.5)缩小回去
+    &--hairline {
+        border-width: 0;
+
+        &::after {
+            border-color: inherit;
+            border-radius: calc(var(--xie-button-border-radius) * 2);
+        }
+    }
+
+    &--disabled {
+        cursor: not-allowed;
+        opacity: var(--xie-button-disabled-opacity);
+    }
+}
