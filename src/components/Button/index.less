@@ -38,7 +38,7 @@
     --xie-button-loading-icon-size: @button-loading-icon-size;
 }
 
-.xie-btn {
+.xie-button {
     position: relative;
     display: inline-block;
     box-sizing: border-box;
@@ -52,6 +52,31 @@
     cursor: pointer;
     transition: opacity var(--xie-animation-duration-fast);
     -webkit-appearance: none;
+
+    &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        background: var(--xie-black);
+        border: inherit;
+        border-color: var(--xie-black);
+        border-radius: inherit;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        content: ' ';
+    }
+
+    &:active::before {
+        opacity: 0.1;
+    }
+
+    &--loading, &--disabled {
+        &::before {
+            display: none;
+        }
+    }
 
     &--default {
         color: var(--xie-button-default-color);
@@ -86,19 +111,19 @@
     &--plain {
         background: var(--xie-button-plain-background-color);
 
-        &.xie-btn--primary {
+        &.xie-button--primary {
             color: var(--xie-button-primary-background-color);
         }
 
-        &.xie-btn--success {
+        &.xie-button--success {
             color: var(--xie-button-success-background-color);
         }
 
-        &.xie-btn--warning {
+        &.xie-button--warning {
             color: var(--xie-button-warning-background-color);
         }
 
-        &.xie-btn--danger {
+        &.xie-button--danger {
             color: var(--xie-button-danger-background-color);
         }
     }
@@ -112,10 +137,51 @@
             border-color: inherit;
             border-radius: calc(var(--xie-button-border-radius) * 2);
         }
+        &.xie-button--round::after {
+            border-radius: var(--xie-button-round-border-radius);
+        }
+        &.xie-button--square::after {
+            border-radius: 0;
+        }
     }
 
     &--disabled {
         cursor: not-allowed;
         opacity: var(--xie-button-disabled-opacity);
+    }
+
+    &--round {
+        border-radius: var(--xie-button-round-border-radius);
+    }
+
+    &--square {
+        border-radius: 0;
+    }
+
+    &--large {
+        width: 100%;
+        height: var(--xie-button-large-height);
+    }
+
+    &--normal {
+        padding: var(--xie-button-normal-padding);
+        font-size: var(--xie-button-normal-font-size);
+    }
+
+    &--small {
+        height: var(--xie-button-small-height);
+        padding: var(--xie-button-small-padding);
+        font-size: var(--xie-button-small-font-size);
+    }
+    
+    &--mini {
+        height: var(--xie-button-mini-height);
+        padding: var(--xie-button-mini-padding);
+        font-size: var(--xie-button-mini-font-size);
+    }
+
+    &--block {
+        display: block;
+        width: 100%;
     }
 }

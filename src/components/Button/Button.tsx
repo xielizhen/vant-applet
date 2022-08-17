@@ -1,7 +1,11 @@
 import React from 'react';
 import { ButtonNativeType, ButtonSize, ButtonType } from './types';
+import { createNamespace } from '../../utils/create';
+import { BORDER_SURROUND } from '../../utils/constant';
 
 import './index.less';
+
+const [name, bem] = createNamespace('button');
 
 export interface ButtonProps {
     type?: ButtonType;
@@ -24,7 +28,7 @@ export interface ButtonProps {
 
 const Button = (props: ButtonProps) => {
     const {
-        type = 'primary',
+        type = 'default',
         size = 'normal',
         color,
         nativeType,
@@ -33,10 +37,25 @@ const Button = (props: ButtonProps) => {
         square,
         round,
         disabled,
+        hairline,
         children
     } = props;
+
+    const classes = bem([
+        type,
+        size,
+        {
+            plain,
+            disabled,
+            hairline,
+            square,
+            round,
+            block
+        }
+    ]) + ` ${ hairline ? BORDER_SURROUND : ''}`
+
     return (
-        <button className='xie-btn xie-btn--success xie-btn--hairline xie-hairline xie-hairline--surround xie-btn--disabled'>
+        <button className={classes}>
             {children}
         </button>
     )
