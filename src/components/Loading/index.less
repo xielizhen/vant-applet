@@ -1,0 +1,110 @@
+@import '../../styles/base.less';
+@import './var.less';
+@import '../../styles/animation.less';
+
+:root {
+    --xie-loading-text-color: @loading-text-color;
+    --xie-loading-text-font-size: @loading-text-font-size;
+    --xie-loading-spinner-color: @loading-spinner-color;
+    --xie-loading-spinner-size: @loading-spinner-size;
+    --xie-loading-spinner-animation-duration: @loading-spinner-animation-duration;
+}
+
+.xie-loading {
+    position: relative;
+    color: var(--xie-loading-spinner-color);
+    // font-size: 0;
+    vertical-align: middle;
+
+    &__spinner {
+        position: relative;
+        display: inline-block;
+        width: var(--xie-loading-spinner-size);
+        max-width: 100%;
+        height: var(--xie-loading-spinner-size);
+        vertical-align: middle;
+        animation: xie-rotate var(--xie-loading-spinner-animation-duration) linear infinite;
+
+        &--spinner {
+            animation-timing-function: steps(12);
+        }
+
+        &--circular {
+            animation-duration: 2s;
+        }
+    }
+
+    &__line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        &::before {
+            display: block;
+            width: 2px;
+            height: 25%;
+            margin: 0 auto;
+            background-color: currentColor;
+            border-radius: 40%;
+            content: ' ';
+        }
+    }
+
+    &__circular {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        circle {
+            animation: xie-circular 1.5s ease-in-out infinite;
+            stroke: currentColor;
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+    }
+
+    &__text {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: var(--xie-padding-xs);
+        color: var(--xie-loading-text-color);
+        font-size: var(--xie-loading-text-font-size);
+    }
+
+    &--vertical {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .xie-loading__text {
+            margin: var(--xie-padding-xs) 0 0;
+        }
+    }
+}
+
+.generate-spinner(@n, @i: 1) when (@i =< @n) {
+    .xie-loading__line--@{i} {
+        transform: rotate(@i * 30deg);
+        opacity: 1 - (0.75 / 12) * (@i - 1);
+    }
+
+    .generate-spinner(@n, (@i + 1));
+}
+
+.generate-spinner(12);
+
+@keyframes xie-circular {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 90 150;
+        stroke-dashoffset: -40;
+    }
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -120;
+    }
+}

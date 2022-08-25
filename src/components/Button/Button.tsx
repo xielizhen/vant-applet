@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { CSSProperties, useImperativeHandle, useRef, useState } from 'react';
 import { ButtonNativeType, ButtonSize, ButtonType } from './types';
 import { createNamespace } from '../../utils/create';
 import { BORDER_SURROUND } from '../../utils/constant';
-
 import './index.less';
+import { XieComponent } from '../../types/base';
+import { isPromise } from '../../utils';
 
 const [name, bem] = createNamespace('button');
 
-export interface ButtonProps {
+type NativeButtonProps = React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+>
+export type ButtonRef = {
+    nativeElement: HTMLButtonElement | null
+}
+
+export type ButtonProps = XieComponent & {
     type?: ButtonType;
     size?: ButtonSize;
     color?: string;
@@ -24,11 +33,12 @@ export interface ButtonProps {
     to?: string;
     replace?: string;
     children?: React.ReactNode;
-}
+    onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void | Promise<void> | unknown;
+} & Pick<NativeButtonProps, 'onMouseDown' | 'onMouseUp' | 'onTouchStart' | 'onTouchEnd'>
 
-const Button = (props: ButtonProps) => {
+const Button = React.forwardRef<ButtonRef, ButtonProps>((props, ref) => {
     const {
-        type = 'default',
+        type = 'primary',
         size = 'normal',
         color,
         nativeType,
@@ -38,8 +48,19 @@ const Button = (props: ButtonProps) => {
         round,
         disabled,
         hairline,
-        children
+        children,
+        customStyle,
+        className,
     } = props;
+    const [innerLoading, setInnerLoading] = useState(false);
+    const loading = innerLoading || props.loading;
+    const nativeButtonRef = useRef<HTMLButtonElement>(null);
+
+    useImperativeHandle(ref, () => ({
+        get nativeElement() {
+            return nativeButtonRef.current
+        },
+    }))
 
     const classes = bem([
         type,
@@ -52,13 +73,59 @@ const Button = (props: ButtonProps) => {
             round,
             block
         }
-    ]) + ` ${ hairline ? BORDER_SURROUND : ''}`
+    ]) + ` ${hairline ? BORDER_SURROUND : ''}`;
+
+    const genStyle = (): CSSProperties => {
+        const style: CSSProperties = {};
+        if (color) {
+            style.color = plain ? color : 'white';
+            if (!plain) {
+                style.background = color;
+            }
+            if (color.includes('gradient')) {
+                style.border = 0;
+            } else {
+                style.borderColor = color;
+            }
+        }
+
+        return {
+            ...style,
+            ...(customStyle || {})
+        }
+    }
+
+    const handleClick = async (e: any) => {
+        if (!props.onClick) return;
+        if (loading || disabled) return;
+        
+        const promise = props.onClick(e);
+        if (isPromise(promise)) {
+            try {
+                setInnerLoading(true);
+                await promise;
+                setInnerLoading(false);
+            } catch (err) {
+                setInnerLoading(false);
+                throw err;
+            }
+        }
+    }
 
     return (
-        <button className={classes}>
+        <button
+            ref={nativeButtonRef}
+            className={`${classes} ${className}`}
+            style={genStyle()}
+            onClick={handleClick}
+            onMouseDown={props.onMouseDown}
+            onMouseUp={props.onMouseUp}
+            onTouchStart={props.onTouchStart}
+            onTouchEnd={props.onTouchEnd}
+        >
             {children}
         </button>
     )
-}
+})
 
 export default Button;

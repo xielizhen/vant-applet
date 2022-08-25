@@ -1,54 +1,54 @@
 @import './var.less';
 
-@keyframes van-slide-up-enter {
+@keyframes xie-slide-up-enter {
   from {
     transform: translate3d(0, 100%, 0);
   }
 }
 
-@keyframes van-slide-up-leave {
+@keyframes xie-slide-up-leave {
   to {
     transform: translate3d(0, 100%, 0);
   }
 }
 
-@keyframes van-slide-down-enter {
+@keyframes xie-slide-down-enter {
   from {
     transform: translate3d(0, -100%, 0);
   }
 }
 
-@keyframes van-slide-down-leave {
+@keyframes xie-slide-down-leave {
   to {
     transform: translate3d(0, -100%, 0);
   }
 }
 
-@keyframes van-slide-left-enter {
+@keyframes xie-slide-left-enter {
   from {
     transform: translate3d(-100%, 0, 0);
   }
 }
 
-@keyframes van-slide-left-leave {
+@keyframes xie-slide-left-leave {
   to {
     transform: translate3d(-100%, 0, 0);
   }
 }
 
-@keyframes van-slide-right-enter {
+@keyframes xie-slide-right-enter {
   from {
     transform: translate3d(100%, 0, 0);
   }
 }
 
-@keyframes van-slide-right-leave {
+@keyframes xie-slide-right-leave {
   to {
     transform: translate3d(100%, 0, 0);
   }
 }
 
-@keyframes van-fade-in {
+@keyframes xie-fade-in {
   from {
     opacity: 0;
   }
@@ -58,7 +58,7 @@
   }
 }
 
-@keyframes van-fade-out {
+@keyframes xie-fade-out {
   from {
     opacity: 1;
   }
@@ -68,7 +68,7 @@
   }
 }
 
-@keyframes van-rotate {
+@keyframes xie-rotate {
   from {
     transform: rotate(0deg);
   }
@@ -78,62 +78,62 @@
   }
 }
 
-.van-fade {
+.xie-fade {
   &-enter-active {
-    animation: var(--xie-animation-duration-base) van-fade-in both
+    animation: var(--xie-animation-duration-base) xie-fade-in both
       var(--xie-animation-timing-function-enter);
   }
 
   &-leave-active {
-    animation: var(--xie-animation-duration-base) van-fade-out both
+    animation: var(--xie-animation-duration-base) xie-fade-out both
       var(--xie-animation-timing-function-leave);
   }
 }
 
-.van-slide-up {
+.xie-slide-up {
   &-enter-active {
-    animation: van-slide-up-enter var(--xie-animation-duration-base) both
+    animation: xie-slide-up-enter var(--xie-animation-duration-base) both
       var(--xie-animation-timing-function-enter);
   }
 
   &-leave-active {
-    animation: van-slide-up-leave var(--xie-animation-duration-base) both
+    animation: xie-slide-up-leave var(--xie-animation-duration-base) both
       var(--xie-animation-timing-function-leave);
   }
 }
 
-.van-slide-down {
+.xie-slide-down {
   &-enter-active {
-    animation: van-slide-down-enter var(--xie-animation-duration-base) both
+    animation: xie-slide-down-enter var(--xie-animation-duration-base) both
       var(--xie-animation-timing-function-enter);
   }
 
   &-leave-active {
-    animation: van-slide-down-leave var(--xie-animation-duration-base) both
+    animation: xie-slide-down-leave var(--xie-animation-duration-base) both
       var(--xie-animation-timing-function-leave);
   }
 }
 
-.van-slide-left {
+.xie-slide-left {
   &-enter-active {
-    animation: van-slide-left-enter var(--xie-animation-duration-base) both
+    animation: xie-slide-left-enter var(--xie-animation-duration-base) both
       var(--xie-animation-timing-function-enter);
   }
 
   &-leave-active {
-    animation: van-slide-left-leave var(--xie-animation-duration-base) both
+    animation: xie-slide-left-leave var(--xie-animation-duration-base) both
       var(--xie-animation-timing-function-leave);
   }
 }
 
-.van-slide-right {
+.xie-slide-right {
   &-enter-active {
-    animation: van-slide-right-enter var(--xie-animation-duration-base) both
+    animation: xie-slide-right-enter var(--xie-animation-duration-base) both
       var(--xie-animation-timing-function-enter);
   }
 
   &-leave-active {
-    animation: van-slide-right-leave var(--xie-animation-duration-base) both
+    animation: xie-slide-right-leave var(--xie-animation-duration-base) both
       var(--xie-animation-timing-function-leave);
   }
 }
